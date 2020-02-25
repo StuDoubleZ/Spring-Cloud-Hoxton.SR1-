@@ -1,0 +1,22 @@
+server:
+  port: 8080
+#Reciver4#
+#spring:
+#  cloud:
+#    stream:
+#        bindings:
+#          input:
+#            group: Service-A
+#            destination: greetings
+#Reciver5#
+spring:
+  cloud:
+    stream:
+      instance-count: 2
+      instance-index: 0
+      bindings:
+        input:
+          group: Service-A
+          destination: greetings
+          consumer:
+            partitioned: true
